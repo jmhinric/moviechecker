@@ -1,20 +1,27 @@
 <div class="page-wrapper">
+  <div class="top-black">
+  </div>
+
   <header>
-    <h1>Movie Checker</h1>
+    <!-- <h1>Movie Checker</h1> -->
   </header>
     
-
-  <form>
-    <label>
-      <input type="text" name="new_movie" placeholder="Enter movie title...">
-    </label>
-    <button>Add Movie</button>
-  </form>
-
   <main>
+
+    <form>
+      <label>
+        <input type="text" name="new_movie" placeholder="Enter movie title...">
+      </label>
+      <button>Add Movie</button>
+    </form>
+
     <ul class="movies">
     </ul>
   </main>
+
+  <footer>
+    <p>Footer</p>
+  </footer>
 
 </div>
 
@@ -22,7 +29,7 @@
   <li class="<%%= movie.get('seen') ? 'seen' : '' %>">
     <h3><%%= movie.get('title') %></h3>
     <img src="<%%= movie.get('poster') %>" /><br/>
-    Seen it? 
+    Seen 
     <input type="checkbox" <%%= movie.get('seen')? 'checked' : '' %> />
     <span>&times;</span>
   </li>

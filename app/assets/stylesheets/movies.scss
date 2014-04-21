@@ -1,11 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Rye);
 
+.top-black {
+  height: 30px;
+  background: black;
+}
+
 header {
   top: 0;
-  height: 300px;
-  background: url("movie_background.jpg");
+  height: 400px;
+  background: url("movie_background_title.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: top;
 
   h1 {
     font-family: 'Rye', serif;
@@ -17,10 +22,10 @@ header {
 }
 
 form {
-  padding-top: 25px;
+  padding-top: 50px;
   width: 350px;
   margin: 0 auto;
-  
+
   button {
     background: black;
     color: white;
@@ -31,6 +36,8 @@ main {
   background: url("movie_curtains.jpg");
   background-size: cover;
   background-position: center;
+
+  margin-bottom: -10px;
 }
 
 img {
@@ -43,13 +50,13 @@ ul {
   list-style-type: none;
 
   li {
-    width: 300px;
+    width: 250px;
     margin: 0 auto;
     padding-top: 25px;
     color: white;
 
-    h3 {
-
+    span {
+      cursor: pointer;
     }
   }
 }
@@ -59,6 +66,8 @@ ul {
   color: red;
 }
 
-li span {
-  cursor: pointer;
+footer {
+  margin-top: -20px;
+  height: 75px;
+  background: black;
 }
