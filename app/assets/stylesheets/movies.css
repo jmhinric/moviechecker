@@ -1,0 +1,12 @@
+form {
+  width: 300px;
+}
+
+.seen {
+  text-decoration: line-through;
+  color: red;
+}
+
+li span {
+  cursor: pointer;
+}

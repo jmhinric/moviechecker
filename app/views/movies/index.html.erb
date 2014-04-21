@@ -1,0 +1,21 @@
+<h1>Welcome to Movie Checker!</h1>
+
+<form>
+  <label>
+    <input type="text" name="new_movie" placeholder="Enter movie title...">
+  </label>
+  <button>Add Movie</button>
+</form>
+
+<ul class="movies">
+</ul>
+
+<script type="template" class="movie_template">
+  <li class="<%%= movie.get('seen') ? 'seen' : '' %>">
+    <%%= movie.get('title') %>
+    <img src="<%%= movie.get('poster') %>" />
+    Seen it? 
+    <input type="checkbox" <%%= movie.get('seen')? 'checked' : '' %> />
+    <span>&times;</span>
+  </li>
+</script>
