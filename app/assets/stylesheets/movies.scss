@@ -1,24 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Rye);
 
-.top-black {
-  height: 30px;
-  background: black;
-}
-
 header {
   top: 0;
-  height: 400px;
-  background: url("movie_background_title.jpg");
-  background-size: cover;
-  background-position: top;
-
-  h1 {
-    font-family: 'Rye', serif;
-    font-size: 3em;
-    text-align: center;
-    margin-top: 0;
-    padding-top: 10px;
-  }
+  height: 150px;
+  background: url("single_film.jpg");
+  background-size: center;
 }
 
 form {
