@@ -9,12 +9,21 @@ header {
 
 form {
   padding-top: 50px;
-  width: 350px;
+  width: 400px;
   margin: 0 auto;
 
+  input {
+    padding: 10px;
+  }
+
   button {
-    background: black;
+    background: grey;
     color: white;
+    font-size: 1.3em;
+    border-radius: 7px;
+    border: 0;
+    margin-left: 10px;
+    padding: 11px;
   }
 }
 
