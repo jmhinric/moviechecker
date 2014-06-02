@@ -6,10 +6,10 @@ var MovieCollection = Backbone.Collection.extend({
   model: Movie,
   url: "/movies",
 
-  customFilter: function(filter) {
-    var results = this.where(filter);
-    return new MovieCollection(results);
-  }
+  // customFilter: function(filter) {
+  //   var results = this.where(filter);
+  //   return new MovieCollection(results);
+  // }
 });
 
 var MovieView = Backbone.View.extend({

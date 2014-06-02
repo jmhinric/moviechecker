@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_action :load_movie, only: [:update, :destroy]
 
   def index
-    @movies = Movie.all.order(id: :desc)
+    @movies = Movie.all.order(updated_at: :desc)
 
     respond_to do |format|
       format.html { render :index }
@@ -26,10 +26,6 @@ class MoviesController < ApplicationController
   end
 
   def update
-    if params[:title]
-      @movie.poster = @movie.movie_poster(params[:title])
-    end
-
     if @movie.update(movie_params)
       render json: @movie
     else
