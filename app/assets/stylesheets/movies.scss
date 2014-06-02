@@ -82,9 +82,22 @@ ul {
   /*border-left: 3px solid white;*/
 }
 
-.seen {
+/*.seen {
   text-decoration: line-through;
   color: red;
+}
+*/
+.delete {
+  display: block;
+  width: 50px;
+  margin: 0 auto;
+  margin-top: 15px;
+  font-size: 11px;
+  background: black;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  padding: 2px;
 }
 
 footer {

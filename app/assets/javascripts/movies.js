@@ -22,7 +22,7 @@ var MovieView = Backbone.View.extend({
 
   events: {
     "change input[type='checkbox']": "toggleSeen",
-    "click span": "destroy"
+    "click .delete": "destroy"
   },
 
   render: function() {
@@ -68,8 +68,11 @@ var UnseenListView = Backbone.View.extend({
 
   addOne: function(movie) {
     if (movie.get("seen") === false) {
-      var view = new MovieView({model: movie});
-      this.$el.append(view.el);
+      var unseenView = new MovieView({model: movie});
+      this.$el.append(unseenView.el);
+    } else {
+      var seenView = new MovieView({model: movie});
+      $(".seen-movies").append(seenView.el);
     }
   }
 });
