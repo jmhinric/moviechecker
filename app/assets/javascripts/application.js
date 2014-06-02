@@ -15,11 +15,13 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require movies
 //= require_tree .
 
-var Movie = Backbone.Model.extend({
-  urlRoot: '/movies'
-});
+
+// var Movie = Backbone.Model.extend({
+//   urlRoot: '/movies'
+// });
 
 // var movie = new Movie();
 // var movieDetails = {

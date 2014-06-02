@@ -4,7 +4,12 @@ var Movie = Backbone.Model.extend({
 
 var MovieCollection = Backbone.Collection.extend({
   model: Movie,
-  url: "/movies"
+  url: "/movies",
+
+  customFilter: function(filter) {
+    var results = this.where(filter);
+    return new MovieCollection(results);
+  }
 });
 
 var MovieView = Backbone.View.extend({
@@ -54,7 +59,7 @@ var FormView = Backbone.View.extend({
   }
 });
 
-var ListView = Backbone.View.extend({
+var UnseenListView = Backbone.View.extend({
   el: "ul.unseen-movies",
 
   initialize: function() {
@@ -62,18 +67,33 @@ var ListView = Backbone.View.extend({
   },
 
   addOne: function(movie) {
-    var view = new MovieView({model: movie});
-    this.$el.append(view.el);
+    if (movie.get("seen") === false) {
+      var view = new MovieView({model: movie});
+      this.$el.append(view.el);
+    }
   }
 });
 
-$(document).ready(function() {
-  var movies = new MovieCollection();
-  var listView = new ListView({collection: movies});
-  var formView = new FormView({collection: movies});
-  movies.fetch()
-    .always(function() {
-      console.log(movies);
-    }
-  );
-});
+// $(document).ready(function() {
+//   var movies = new MovieCollection();
+//   var unseenMovies = movies.customFilter(
+//     {seen: false});
+//   var seenMovies = movies.customFilter(
+//     {seen: true});
+  
+//   var unseenListView = new UnseenListView(
+//     {collection: unseenMovies} );
+//   var formView = new FormView(
+//     {collection: movies} );
+  
+//   // movies.fetch();
+//   unseenMovies.fetch();
+
+//   //   .always(function() {
+//   //     console.log(movies);
+//   //   }
+//   // );
+
+  
+  
+// });
