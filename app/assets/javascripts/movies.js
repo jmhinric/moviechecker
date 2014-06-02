@@ -35,6 +35,7 @@ var MovieView = Backbone.View.extend({
     var checked = $(e.target).is(":checked");
     this.model.set('seen', checked);
     this.model.save();
+    this.remove();
   },
 
   destroy: function() {
@@ -59,20 +60,21 @@ var FormView = Backbone.View.extend({
   }
 });
 
-var UnseenListView = Backbone.View.extend({
+var ListView = Backbone.View.extend({
   el: "ul.unseen-movies",
 
   initialize: function() {
     this.listenTo(this.collection, "add", this.addOne);
+    this.listenTo(this.collection, "change:seen", this.addOne);
   },
 
   addOne: function(movie) {
     if (movie.get("seen") === false) {
       var unseenView = new MovieView({model: movie});
-      this.$el.append(unseenView.el);
+      this.$el.prepend(unseenView.el);
     } else {
       var seenView = new MovieView({model: movie});
-      $(".seen-movies").append(seenView.el);
+      $(".seen-movies").prepend(seenView.el);
     }
   }
 });
@@ -84,7 +86,7 @@ var UnseenListView = Backbone.View.extend({
 //   var seenMovies = movies.customFilter(
 //     {seen: true});
   
-//   var unseenListView = new UnseenListView(
+//   var unseenListView = new ListView(
 //     {collection: unseenMovies} );
 //   var formView = new FormView(
 //     {collection: movies} );

@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_action :load_movie, only: [:update, :destroy]
 
   def index
-    @movies = Movie.all.order(updated_at: :desc)
+    @movies = Movie.all.order(updated_at: :asc)
 
     respond_to do |format|
       format.html { render :index }
