@@ -12,7 +12,12 @@
       <button>Add Movie</button>
     </form>
 
-    <ul class="movies">
+    <ul class="movies seen-movies">
+      <h2>Already Seen</h2>
+    </ul>
+
+    <ul class="movies unseen-movies">
+      <h2>Want to See</h2>
     </ul>
   </main>
 
@@ -23,7 +28,7 @@
 
 <script type="template" class="movie_template">
   <li class="<%%= movie.get('seen') ? 'seen' : '' %>">
-    <h3><%%= movie.get('title') %></h3>
+    <h3 class="movie-title"><%%= movie.get('title') %></h3>
     <img src="<%%= movie.get('poster') %>"><br/>
     Seen 
     <input type="checkbox" <%%= movie.get('seen')? 'checked' : '' %> />

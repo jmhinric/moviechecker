@@ -55,7 +55,7 @@ var FormView = Backbone.View.extend({
 });
 
 var ListView = Backbone.View.extend({
-  el: "ul",
+  el: "ul.unseen-movies",
 
   initialize: function() {
     this.listenTo(this.collection, "add", this.addOne);
