@@ -61,7 +61,7 @@ var FormView = Backbone.View.extend({
 });
 
 var ListView = Backbone.View.extend({
-  el: "ul.unseen-movies",
+  el: "ul.unseen-list",
 
   initialize: function() {
     this.listenTo(this.collection, "add", this.addOne);
@@ -74,7 +74,7 @@ var ListView = Backbone.View.extend({
       this.$el.prepend(unseenView.el);
     } else {
       var seenView = new MovieView({model: movie});
-      $(".seen-movies").prepend(seenView.el);
+      $(".seen-list").prepend(seenView.el);
     }
   }
 });

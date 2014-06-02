@@ -40,17 +40,23 @@ img {
   height: 226px;
 }
 
-ul {
+.movies, ul {
   padding: 0 0 100px 0;
+  margin-left: 12px;
+  margin-right: 12px;
   list-style-type: none;
   display: inline-block;
   text-align: center;
   color: white;
 
+  .seen-unseen {
+    font-size: 2em;
+  }
+  
   li {
+    display: inline-block;
     width: 144px;
-    margin: 0 auto;
-    padding-top: 25px;
+    padding: 0 10px 0 10px;
     color: white;
 
     span {
@@ -58,7 +64,17 @@ ul {
     }
 
     .movie-title {
-      text-align: center;
+      height: 100px;
+      position: relative;
+
+      .title-text {
+        text-align: center;
+        margin: 5px auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 5px;
+      }
     }
   }
 
@@ -66,18 +82,13 @@ ul {
 
 
 .seen-movies {
-  width: 48%;
+  width: 45%;
   float: left;
   /*border-right: 3px solid white;*/
 }
 
-.divider {
-  display: inline-block;
-  margin-top: 70px;
-}
-
 .unseen-movies {
-  width: 48%;
+  width: 45%;
   float: right;
   /*border-left: 3px solid white;*/
 }
@@ -105,4 +116,11 @@ footer {
   margin-top: -20px;
   height: 75px;
   background: black;
+}
+
+
+@media (max-width: 500px) {
+  .movies {
+    width: 40%;
+  }
 }
