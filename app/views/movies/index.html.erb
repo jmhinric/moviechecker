@@ -39,9 +39,10 @@
       </h3>
     </div>
 
-    <img src="<%%= movie.get('poster') %>"><br/>
+    <img class="poster" src="<%%= movie.get('poster') %>"><br/>
     
-    <input type="checkbox" <%%= movie.get('seen')? 'checked' : '' %> /><span>Seen</span>
+    <input type="checkbox" <%%= movie.get('seen')? 'checked' : '' %> />
+    <span class="seen-label">Seen</span>
     
     <button class="delete">Delete</button>
   </li>
