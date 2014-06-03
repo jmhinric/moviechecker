@@ -29,11 +29,15 @@ form {
 }
 
 .errors {
-  height: 50px;
+  height: 20px;
 
   .error {
-    color: firebrick;
+    color: red;
+    font-style: italic;
+    display: block;
     text-align: center;
+    padding-top: 30px;
+    font-size: 1.4em;
   }
 }
 
