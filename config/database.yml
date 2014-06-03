@@ -13,5 +13,5 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: watchio_production
+  database: moviechecker_production
   pool: 5
