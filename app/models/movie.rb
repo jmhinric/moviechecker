@@ -8,7 +8,8 @@ class Movie < ActiveRecord::Base
     rot_tom = JSON(rot_tom_json)
     
     return { poster: rot_tom["movies"][0]["posters"]["original"],
-             title: rot_tom["movies"][0]["title"] }
+             title: rot_tom["movies"][0]["title"],
+             link: rot_tom["movies"][0]["links"]["alternate"] }
   end
 
   def already_exists?

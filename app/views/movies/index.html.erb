@@ -44,7 +44,9 @@
       </h3>
     </div>
 
-    <img class="poster" src="<%%= movie.get('poster') %>"><br/>
+    <a href="<%%= movie.get('link') || 'http://rottentomatoes.com' %>">
+      <img class="poster" src="<%%= movie.get('poster') %>">
+    </a><br/>
     
     <input type="checkbox" <%%= movie.get('seen')? 'checked' : '' %> />
     <span class="seen-label">Seen</span>

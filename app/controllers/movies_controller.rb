@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
 
     @movie.poster = @movie_info[:poster]
     @movie.title = @movie_info[:title]
+    @movie.link = @movie_info[:link]
 
     if @movie.save
       render json: @movie
