@@ -21,6 +21,8 @@ var MovieView = Backbone.View.extend({
   },
 
   render: function() {
+    $('.error').text("");
+
     var template = $("script.movie_template").html();
     var rendered = _.template(template, { movie: this.model });
     this.$el.html(rendered);
@@ -52,7 +54,11 @@ var FormView = Backbone.View.extend({
     var new_title = this.el.elements["new_movie"].value;
     this.collection.create(
       { title: new_title },
-      { wait: true });
+      { wait: true,
+        success: function(json) {
+          $('.error').text(json["attributes"]["errors"]);
+        }
+      });
     this.el.reset();
   }
 });
@@ -66,6 +72,8 @@ var ListView = Backbone.View.extend({
   },
 
   addOne: function(movie) {
+    if (movie.get('id') === undefined) { return; }
+
     if (movie.get("seen") === false) {
       var unseenView = new MovieView({model: movie});
       this.$el.prepend(unseenView.el);
