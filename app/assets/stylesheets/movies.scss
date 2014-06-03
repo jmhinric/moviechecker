@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Rye);
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
 
 header {
   top: 0;
@@ -65,6 +66,7 @@ img.poster {
 
   .seen-unseen {
     font-size: 2em;
+    font-family: 'Libre Baskerville', serif;
   }
   
   li {
@@ -83,6 +85,7 @@ img.poster {
 
       .title-text {
         font-size: .9em;
+        /*font-family: 'Libre Baskerville', serif;*/
         text-align: center;
         margin: 5px auto;
         position: absolute;
