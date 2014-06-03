@@ -20,9 +20,12 @@ class MoviesController < ApplicationController
 
     if @movie.save
       render json: @movie
+    # elsif @movie.already_exists?
+    #   render json: { error: "Movie already exists!" }
     else
       render status: 400, nothing: true
     end
+
   end
 
   def update

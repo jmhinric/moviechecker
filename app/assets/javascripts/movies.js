@@ -5,11 +5,6 @@ var Movie = Backbone.Model.extend({
 var MovieCollection = Backbone.Collection.extend({
   model: Movie,
   url: "/movies",
-
-  // customFilter: function(filter) {
-  //   var results = this.where(filter);
-  //   return new MovieCollection(results);
-  // }
 });
 
 var MovieView = Backbone.View.extend({
@@ -55,7 +50,9 @@ var FormView = Backbone.View.extend({
   createMovie: function(e) {
     e.preventDefault();
     var new_title = this.el.elements["new_movie"].value;
-    this.collection.create({title: new_title}, {wait: true});
+    this.collection.create(
+      { title: new_title },
+      { wait: true });
     this.el.reset();
   }
 });
@@ -78,27 +75,3 @@ var ListView = Backbone.View.extend({
     }
   }
 });
-
-// $(document).ready(function() {
-//   var movies = new MovieCollection();
-//   var unseenMovies = movies.customFilter(
-//     {seen: false});
-//   var seenMovies = movies.customFilter(
-//     {seen: true});
-  
-//   var unseenListView = new ListView(
-//     {collection: unseenMovies} );
-//   var formView = new FormView(
-//     {collection: movies} );
-  
-//   // movies.fetch();
-//   unseenMovies.fetch();
-
-//   //   .always(function() {
-//   //     console.log(movies);
-//   //   }
-//   // );
-
-  
-  
-// });

@@ -27,6 +27,15 @@ form {
   }
 }
 
+.errors {
+  height: 50px;
+
+  .error {
+    color: firebrick;
+    text-align: center;
+  }
+}
+
 main {
   background: url("movie_curtains.jpg");
   background-size: cover;
@@ -69,10 +78,11 @@ img.poster {
     }
 
     .movie-title {
-      height: 100px;
+      height: 80px;
       position: relative;
 
       .title-text {
+        font-size: .9em;
         text-align: center;
         margin: 5px auto;
         position: absolute;

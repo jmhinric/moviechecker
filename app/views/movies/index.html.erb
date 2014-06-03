@@ -12,6 +12,11 @@
       <button>Add Movie</button>
     </form>
 
+    <div class="errors">
+      <span class="error">
+      </span>
+    </div>
+
     <div class="movies seen-movies">
       <h2 class="seen-unseen">Already Seen:</h2>
       <ul class="seen-list">
@@ -59,15 +64,5 @@
     {collection: movies} );
 
   movies.fetch();
-  
-  
-
-  // unseenMovies.fetch();
-
-  //   .always(function() {
-  //     console.log(movies);
-  //   }
-  // );
-
 </script>
 

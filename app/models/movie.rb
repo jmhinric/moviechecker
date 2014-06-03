@@ -1,4 +1,6 @@
 class Movie < ActiveRecord::Base
+  validates :title, uniqueness: true
+
   def movie_poster(title)
     search_title = title.gsub(' ', '+')
 
@@ -7,5 +9,9 @@ class Movie < ActiveRecord::Base
     
     return { poster: rot_tom["movies"][0]["posters"]["original"],
              title: rot_tom["movies"][0]["title"] }
+  end
+
+  def already_exists?
+    Movie.find_by title: title
   end
 end
