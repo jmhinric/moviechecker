@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
     if @movie.save
       render json: @movie
     elsif @movie.already_exists?
-      render json: { errors: "Movie already exists" }
+      render json: { errors: "Movie already added" }
     else
       render status: 400, nothing: true
     end

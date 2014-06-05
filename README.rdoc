@@ -1,28 +1,16 @@
-== README
+# MovieChecker
+by John Hinrichs
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Overview
 
-Things you may want to cover:
+**MovieChecker** is an app I'm building to learn Backbone.js which uses the Rotten Tomatoes API.
 
-* Ruby version
+### Technologies Used
 
-* System dependencies
+* Backbone.js 1.0.0
+* Underscore.js 1.6.0
+* Ruby on Rails 4.0.4
+* PostgreSQL Database
+* Rotten Tomatoes API
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+[View this project on Heroku](http://moviechecker.herokuapp.com/)
