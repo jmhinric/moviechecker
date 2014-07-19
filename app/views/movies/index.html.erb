@@ -18,6 +18,10 @@
       </span>
     </div>
 
+    <div class="potential-movies">
+      <ul class="movie-choices"></ul>
+    </div>
+
     <div class="movies seen-movies">
       <h2 class="seen-unseen">Already Seen:</h2>
       <ul class="seen-list">
@@ -56,12 +60,27 @@
   </li>
 </script>
 
+<script type="template" class="potential_movie_template">
+  
+    <div class="movie-title">
+      <h3 class="title-text">
+        <%%= movie.get('title') %>
+      </h3>
+    </div>
+
+    <img class="poster" src="<%%= movie.get('poster') %>">
+    </a><br/>    
+  
+</script>
+
 <script type="text/javascript">
   var movies = new MovieCollection();
+  var potentialMovies = new MovieChoiceCollection();
   var listView = new ListView(
-    {collection: movies} );
+    { collection: movies } );
   var formView = new FormView(
-    {collection: movies} );
+    // changed this from 'movies'
+    { model: new MovieChoice(), collection: movies } );
 
   movies.fetch();
 </script>

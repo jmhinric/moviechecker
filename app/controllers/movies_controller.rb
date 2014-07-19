@@ -12,12 +12,11 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(movie_params)
-    @movie_info = @movie.movie_poster(@movie.title)
-
-    @movie.poster = @movie_info[:poster]
-    @movie.title = @movie_info[:title]
-    @movie.link = @movie_info[:link]
+    @movie = Movie.new(
+      title: params["title"],
+      poster: params["poster"],
+      link: params["link"]
+    )
 
     if @movie.save
       render json: @movie
@@ -45,6 +44,16 @@ class MoviesController < ApplicationController
     end
   end
 
+  def api
+    @movie = Movie.new
+    @movie_info = @movie.movie_poster(params['title'])
+
+    # @movie.poster = @movie_info[:poster]
+    # @movie.title = @movie_info[:title]
+    # @movie.link = @movie_info[:link]
+
+    render json: { title: @movie_info[:title], poster: @movie_info[:poster], link: @movie_info[:link] }
+  end
 
   private
 
@@ -55,5 +64,6 @@ class MoviesController < ApplicationController
   def load_movie
     @movie = Movie.find(params[:id])
   end
+
 
 end
