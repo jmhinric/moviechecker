@@ -60,6 +60,7 @@ var FormView = Backbone.View.extend({
 
   apiPossibleMovies: function(e) {
     e.preventDefault();
+    $('.error').text("");
     $('.potential-title').removeClass("hidden");
     $(".movie-choices").empty();
 
@@ -70,7 +71,6 @@ var FormView = Backbone.View.extend({
       { title: new_title },
       { wait: true,
         success: function(json) {
-          // $('.error').text(json["attributes"]["errors"]);
 
           for(var i = 0; i < 5; i++) {
             new PotentialMovieView({ model: new MovieChoice({
@@ -133,7 +133,8 @@ var PotentialMovieView = Backbone.View.extend({
       title: this.model.get('title'),
       poster: this.model.get('poster'),
       link: this.model.get('link')
-    }, { success: function() {
+    }, { success: function(json) {
+      $('.error').text(json.get("errors"));
       $('.potential-title').addClass("hidden");
       $(".movie-choices").empty();
       }
