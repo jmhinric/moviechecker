@@ -62,27 +62,39 @@ var FormView = Backbone.View.extend({
     e.preventDefault();
     $('.error').text("");
     $('.potential-title').removeClass("hidden");
-    $(".movie-choices").empty();
 
     var self = this;
     var new_title = this.el.elements["new_movie"].value;
 
     this.model.save(
       { title: new_title },
-      { wait: true,
-        success: function(json) {
+      { success: function(json) {
+          $(".movie-choices").empty();
 
-          for(var i = 0; i < 5; i++) {
-            new PotentialMovieView({ model: new MovieChoice({
-                title: json.get('movies')[i]['title'],
-                poster: json.get('movies')[i]['poster'],
-                link: json.get('movies')[i]['link']
-              }), collection: self.collection
+          $.each(json.get('movies'), function(i, val) {
+            new PotentialMovieView({
+              model: new MovieChoice({
+                title: val['title'],
+                poster: val['poster'],
+                link: val['link']
+              }),
+              collection: self.collection
             });
-          }
+          });
+          self.addClear();
         }
       });
     this.el.reset();
+  },
+
+  addClear: function() {
+    $("<div>").text("(clear results)")
+              .addClass("clear-button")
+              .on("click", function() {
+                    $(".potential-title").addClass("hidden");
+                    $(".movie-choices").empty();
+                 })
+              .appendTo($(".movie-choices"));
   }
 });
 

@@ -49,7 +49,6 @@ class MoviesController < ApplicationController
     @movie_info = @movie.movie_poster(params['title'], 5)
 
     render json: { movies: @movie_info }
-    # render json: { title: @movie_info[:title], poster: @movie_info[:poster], link: @movie_info[:link] }
   end
 
   private

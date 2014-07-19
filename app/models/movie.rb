@@ -7,7 +7,7 @@ class Movie < ActiveRecord::Base
     rot_tom_json = HTTParty.get "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=#{ROTTEN_TOM}&q=#{search_title}&page_limit=#{num}"
     rot_tom = JSON(rot_tom_json)
     
-    return json_response(rot_tom, num);
+    return json_response(rot_tom, rot_tom["movies"].length);
   end
 
   def json_response(rot_tom, num)
@@ -16,7 +16,8 @@ class Movie < ActiveRecord::Base
       response.push(
         { poster: rot_tom["movies"][i]["posters"]["original"].gsub("tmb.jpg", "ori.jpg"),
         title: rot_tom["movies"][i]["title"],
-        link: rot_tom["movies"][i]["links"]["alternate"] }
+        link: rot_tom["movies"][i]["links"]["alternate"]
+        }
       ) 
     end
     return response
