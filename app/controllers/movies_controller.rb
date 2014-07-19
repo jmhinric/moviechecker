@@ -46,9 +46,10 @@ class MoviesController < ApplicationController
 
   def api
     @movie = Movie.new
-    @movie_info = @movie.movie_poster(params['title'])
+    @movie_info = @movie.movie_poster(params['title'], 5)
 
-    render json: { title: @movie_info[:title], poster: @movie_info[:poster], link: @movie_info[:link] }
+    render json: { movies: @movie_info }
+    # render json: { title: @movie_info[:title], poster: @movie_info[:poster], link: @movie_info[:link] }
   end
 
   private
