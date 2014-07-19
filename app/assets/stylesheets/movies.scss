@@ -1,6 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Rye);
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
 
+.hidden {
+  visibility: hidden;
+}
+
 header {
   top: 0;
   height: 150px;
@@ -49,9 +53,25 @@ main {
   overflow: hidden;
 }
 
-.movie-choices {
-  width: 75%;
-  padding-top: 20px;
+.potential-movies {
+
+  .potential-title {
+    text-align: center;
+    color: white;
+    font-family: 'Libre Baskerville', serif;
+
+  }
+  .movie-choices {
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+    li {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
 }
 
 .seen-label {
@@ -77,6 +97,7 @@ img.poster {
   .seen-unseen {
     font-size: 2em;
     font-family: 'Libre Baskerville', serif;
+    margin-bottom: 0;
   }
   
   li {
@@ -100,9 +121,7 @@ img.poster {
       }
     }
   }
-
 }
-
 
 .seen-movies {
   width: 45%;

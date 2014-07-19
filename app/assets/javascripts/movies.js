@@ -59,8 +59,11 @@ var FormView = Backbone.View.extend({
   },
 
   apiPossibleMovies: function(e) {
-    var self = this;
     e.preventDefault();
+    $('.potential-title').toggleClass("hidden");
+    $(".potential-movie").empty();
+
+    var self = this;
     var new_title = this.el.elements["new_movie"].value;
 
     this.model.save(
@@ -102,24 +105,12 @@ var ListView = Backbone.View.extend({
   }
 });
 
-// var MovieChoicesView = Backbone.View.extend({
-//   el: "ul.movie-choices",
-
-//   initialize: function() {
-//     this.render();
-//   },
-
-//   render: function() {
-//     var movieView = new PotentialMovieView({model: movie});
-//     this.$el.prepend(movieView.el);
-//   }
-// });
-
 var PotentialMovieView = Backbone.View.extend({
   tagName: "li",
 
   initialize: function() {
     this.render();
+    $('.potential-title').show();
   },
 
   events: {
@@ -141,6 +132,7 @@ var PotentialMovieView = Backbone.View.extend({
       poster: this.model.get('poster'),
       link: this.model.get('link')
     }, { success: function() {
+      $('.potential-title').toggleClass("hidden");
       $(".movie-choices").empty();
       }
     });

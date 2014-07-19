@@ -48,10 +48,6 @@ class MoviesController < ApplicationController
     @movie = Movie.new
     @movie_info = @movie.movie_poster(params['title'])
 
-    # @movie.poster = @movie_info[:poster]
-    # @movie.title = @movie_info[:title]
-    # @movie.link = @movie_info[:link]
-
     render json: { title: @movie_info[:title], poster: @movie_info[:poster], link: @movie_info[:link] }
   end
 

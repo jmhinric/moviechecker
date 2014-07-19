@@ -19,6 +19,9 @@
     </div>
 
     <div class="potential-movies">
+      <h2 class="potential-title hidden">
+        Click to add:
+      </h2>
       <ul class="movie-choices"></ul>
     </div>
 
@@ -79,7 +82,6 @@
   var listView = new ListView(
     { collection: movies } );
   var formView = new FormView(
-    // changed this from 'movies'
     { model: new MovieChoice(), collection: movies } );
 
   movies.fetch();
