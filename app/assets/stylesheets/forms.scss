@@ -1,0 +1,92 @@
+.single-form {
+  padding-bottom: 200px;
+
+  .form-title {
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .form-subtitle {
+    margin-top: 25px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .delete-user {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  form {
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  /*Used for Run new*/
+  form.wide-thirty {
+    width: 30%;
+  }
+
+  /*===================================*/
+  /*Used for Company new and edit form b/c of URL*/
+  form.wide-forty {
+    width: 40%;
+  }
+  
+  /*Used for Review new and edit form*/
+  form.wide-fifty {
+    width: 50%;
+  }
+  /*====================================*/
+
+  label {
+    color: white;
+    display: block;
+    font-size: 1.3em;
+    margin-top: 20px;
+  }
+
+  input, textarea {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+
+  textarea {
+    margin-top: 20px;
+  }
+
+
+  input:focus {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+
+  input[type=submit] {
+    border-radius: 10px;
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 35px;
+  }
+}
+
+.nav-link {
+  padding: 20px;
+  
+  a {
+    color: white;
+  }
+}
+
+
+
+
+
+
+
+

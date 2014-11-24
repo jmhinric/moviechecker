@@ -13,7 +13,6 @@ var MovieCollection = Backbone.Collection.extend({
 
 var MovieChoiceCollection = Backbone.Collection.extend({
   model: MovieChoice,
-  // url: "/movies/api"
 });
 
 var MovieView = Backbone.View.extend({
@@ -88,7 +87,7 @@ var FormView = Backbone.View.extend({
   },
 
   addClear: function() {
-    $("<div>").text("(clear results)")
+    $("<div>").text("clear results")
               .addClass("clear-button")
               .on("click", function() {
                     $(".potential-title").addClass("hidden");

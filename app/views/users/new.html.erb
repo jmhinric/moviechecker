@@ -1,0 +1,14 @@
+<main class="single-form">
+
+  <%= render partial: "shared/errors", locals: { entity: @user } %>
+
+  <div class="nav-link">
+    <%= link_to "Log In", login_path %>
+  </div>
+
+  <h2 class="form-title">
+    Sign up to keep track of your favorite movies!
+  </h2>
+  <%= render partial: "user_form", locals: { user: @user } %>
+
+</main>

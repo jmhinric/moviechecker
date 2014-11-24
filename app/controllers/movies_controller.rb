@@ -1,9 +1,12 @@
 class MoviesController < ApplicationController
 
   before_action :load_movie, only: [:update, :destroy]
+  before_action :load_user
+  before_action :authenticate, :authorize
 
   def index
     @movies = Movie.all.order(updated_at: :asc)
+    # @movies = @current_user.movies.all.order(update_at: :asc)
 
     respond_to do |format|
       format.html { render :index }
@@ -59,6 +62,10 @@ class MoviesController < ApplicationController
 
   def load_movie
     @movie = Movie.find(params[:id])
+  end
+
+  def load_user
+    @user = current_user
   end
 
 

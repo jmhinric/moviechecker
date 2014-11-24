@@ -1,0 +1,12 @@
+<% if flash[:error] || entity.errors.messages.present? %>
+    
+  <% if flash[:error] %>
+      
+    <div class="errors">
+      <div class="error">
+        <%= flash[:error] %>
+      </div>
+    </div>
+
+  <% end %>
+<% end %>

@@ -1,8 +1,5 @@
 <div class="page-wrapper">
 
-  <header>
-  </header>
-    
   <main>
 
     <form>
@@ -40,6 +37,9 @@
   </main>
 
   <footer>
+    <div class="nav-link">
+      <%= link_to "Log Out", "/session", method: "delete" %>
+    </div>
   </footer>
 
 </div>
@@ -61,6 +61,7 @@
     
     <button class="delete">Delete</button>
   </li>
+
 </script>
 
 <script type="template" class="potential_movie_template">
