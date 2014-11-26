@@ -140,15 +140,19 @@ var PotentialMovieView = Backbone.View.extend({
 
   createMovie: function() {
     this.collection.create(
-    {
-      title: this.model.get('title'),
+    { title: this.model.get('title'),
       poster: this.model.get('poster'),
       link: this.model.get('link')
-    }, { success: function(json) {
+    },
+    { success: function(json) {
       $('.error').text(json.get("errors"));
       $('.potential-title').addClass("hidden");
       $(".movie-choices").empty();
       }
-    });
+    },
+    { error: function(error) {
+      console.log(error);
+    }
+  });
   }
 });

@@ -5,8 +5,14 @@ class MoviesController < ApplicationController
   before_action :authenticate, :authorize
 
   def index
-    @movies = Movie.all.order(updated_at: :asc)
-    # @movies = @current_user.movies.all.order(update_at: :asc)
+    @movies = @user.movies.all
+    # @user_movies = UserMovie.where(user_id: @user.id)
+    @movies.map do |movie|
+      # user_movie = @user_movies.find_by(movie_id: m.id)
+      movie.seen = UserMovie.get_user_movie(@user, movie).seen
+      movie
+    end
+    @movies.sort_by! { |m| UserMovie.get_user_movie(@user, m).updated_at } if @movies.present?
 
     respond_to do |format|
       format.html { render :index }
@@ -15,24 +21,39 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(
-      title: params["title"],
-      poster: params["poster"],
-      link: params["link"]
-    )
+    existing_movie = Movie.find_by(title: params["title"])
 
-    if @movie.save
-      render json: @movie
-    elsif @movie.already_exists?
-      render json: { errors: "Movie already added" }
+    if existing_movie
+      if @user.already_owns? existing_movie
+        render json: { errors: "Movie already added" }
+      else
+        if @user.movies << existing_movie
+          render json: existing_movie
+        else
+          render status: 400, nothing: true
+        end
+      end
     else
-      render status: 400, nothing: true
+      new_movie = Movie.new(
+        title: params["title"],
+        poster: params["poster"],
+        link: params["link"]
+      )
+      if new_movie.save
+        @user.movies << new_movie
+        render json: new_movie
+      else
+        render status: 400, nothing: true
+      end
     end
-
   end
 
   def update
-    if @movie.update(movie_params)
+    user_movie = UserMovie.get_user_movie(@user, @movie)
+    if user_movie.toggle!(:seen)
+      # update({ seen: params[:seen] })
+      # user_movie.save
+      @movie.seen = user_movie.seen
       render json: @movie
     else
       render status: 400, nothing: true
@@ -40,7 +61,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    if @movie.destroy
+    if @user.movies.delete @movie
       render json: {}
     else
       render status: 400, nothing: true

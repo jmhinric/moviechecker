@@ -1,5 +1,7 @@
 class Movie < ActiveRecord::Base
   validates :title, uniqueness: true
+  has_many :user_movies
+  has_many :users, through: :user_movies
 
   def movie_poster(title, num)
     search_title = title.gsub(' ', '+')
