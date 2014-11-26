@@ -1,5 +1,5 @@
 .single-form {
-  padding-bottom: 200px;
+  padding-bottom: 1500px;
 
   .form-title {
     color: white;
@@ -25,23 +25,6 @@
     margin: 0 auto;
     margin-top: 40px;
   }
-
-  /*Used for Run new*/
-  form.wide-thirty {
-    width: 30%;
-  }
-
-  /*===================================*/
-  /*Used for Company new and edit form b/c of URL*/
-  form.wide-forty {
-    width: 40%;
-  }
-  
-  /*Used for Review new and edit form*/
-  form.wide-fifty {
-    width: 50%;
-  }
-  /*====================================*/
 
   label {
     color: white;
@@ -72,6 +55,9 @@
     width: 150px;
     margin: 0 auto;
     margin-top: 35px;
+    background-color: black;
+    color: white;
+    border: 0;
   }
 }
 
